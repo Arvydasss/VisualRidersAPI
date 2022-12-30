@@ -1,3 +1,4 @@
+using APIforVisualRiders.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APIforVisualRiders.Controllers
