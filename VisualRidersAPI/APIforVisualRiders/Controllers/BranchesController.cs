@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Data;
 using apiForVisualRiders.Models;
+using APIforVisualRiders.Models.Dtos;
 
 namespace APIforVisualRiders.Controllers
 {
@@ -73,8 +74,77 @@ namespace APIforVisualRiders.Controllers
             return NoContent();
         }
 
+        // PUT: api/Branches/5
+        [HttpPut("{id}/working-hours")]
+        public async Task<IActionResult> PutBranchHours(Guid id, UpdateBranchWorkingHoursDto payload)
+        {
+            var branch = await _context.Branch.FindAsync(id);
+
+            if (id != branch.Id)
+            {
+                return BadRequest();
+            }
+            Time start = payload.WorkingHourStart;
+            Time end = payload.WorkingHourEnd;
+            string s = start.Hours.ToString() + ":" + start.Minutes.ToString();
+            string e = end.Hours.ToString() + ":" + end.Minutes.ToString();
+            branch.WorkingHourStartStr = s;
+            branch.WorkingHourEndStr = e;
+            _context.Entry(branch).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BranchExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // PUT: api/Branches/5
+        [HttpPut("{id}/contacts")]
+        public async Task<IActionResult> PutBranchHours(Guid id, string contact)
+        {
+            var branch = await _context.Branch.FindAsync(id);
+
+            if (id != branch.Id)
+            {
+                return BadRequest();
+            }
+
+            branch.Contacts = contact;
+            _context.Entry(branch).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BranchExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
         // POST: api/Branches
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Branch>> PostBranch(Branch branch)
         {
