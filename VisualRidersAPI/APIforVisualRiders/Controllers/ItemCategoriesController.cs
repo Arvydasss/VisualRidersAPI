@@ -14,9 +14,9 @@ namespace APIforVisualRiders.Controllers
     [ApiController]
     public class ItemCategoriesController : ControllerBase
     {
-        private readonly NorthwindContext _context;
+        private readonly VisualRidersContext _context;
 
-        public ItemCategoriesController(NorthwindContext context)
+        public ItemCategoriesController(VisualRidersContext context)
         {
             _context = context;
         }
