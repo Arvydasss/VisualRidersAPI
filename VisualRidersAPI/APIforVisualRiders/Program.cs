@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<NorthwindContext>
+builder.Services.AddDbContext<VisualRidersContext>
     (options => options.UseSqlite("Name=NorthwindDB"));
 
 var app = builder.Build();

@@ -15,9 +15,9 @@ namespace APIforVisualRiders.Controllers
     [ApiController]
     public class BranchesController : ControllerBase
     {
-        private readonly NorthwindContext _context;
+        private readonly VisualRidersContext _context;
 
-        public BranchesController(NorthwindContext context)
+        public BranchesController(VisualRidersContext context)
         {
             _context = context;
         }

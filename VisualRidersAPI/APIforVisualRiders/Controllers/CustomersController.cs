@@ -12,47 +12,47 @@ namespace APIforVisualRiders.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CompaniesController : ControllerBase
+    public class CustomersController : ControllerBase
     {
         private readonly VisualRidersContext _context;
 
-        public CompaniesController(VisualRidersContext context)
+        public CustomersController(VisualRidersContext context)
         {
             _context = context;
         }
 
-        // GET: api/Companies
+        // GET: api/Customers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Company>>> GetCompany()
+        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomer()
         {
-            return await _context.Company.ToListAsync();
+            return await _context.Customer.ToListAsync();
         }
 
-        // GET: api/Companies/5
+        // GET: api/Customers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Company>> GetCompany(Guid id)
+        public async Task<ActionResult<Customer>> GetCustomer(Guid id)
         {
-            var company = await _context.Company.FindAsync(id);
+            var customer = await _context.Customer.FindAsync(id);
 
-            if (company == null)
+            if (customer == null)
             {
                 return NotFound();
             }
 
-            return company;
+            return customer;
         }
 
-        // PUT: api/Companies/5
+        // PUT: api/Customers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCompany(Guid id, Company company)
+        public async Task<IActionResult> PutCustomer(Guid id, Customer customer)
         {
-            if (id != company.Id)
+            if (id != customer.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(company).State = EntityState.Modified;
+            _context.Entry(customer).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace APIforVisualRiders.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CompanyExists(id))
+                if (!CustomerExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace APIforVisualRiders.Controllers
             return NoContent();
         }
 
-        // POST: api/Companies
+        // POST: api/Customers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Company>> PostCompany(Company company)
+        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
         {
-            _context.Company.Add(company);
+            _context.Customer.Add(customer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCompany", new { id = company.Id }, company);
+            return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
         }
 
-        // DELETE: api/Companies/5
+        // DELETE: api/Customers/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCompany(Guid id)
+        public async Task<IActionResult> DeleteCustomer(Guid id)
         {
-            var company = await _context.Company.FindAsync(id);
-            if (company == null)
+            var customer = await _context.Customer.FindAsync(id);
+            if (customer == null)
             {
                 return NotFound();
             }
 
-            _context.Company.Remove(company);
+            _context.Customer.Remove(customer);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CompanyExists(Guid id)
+        private bool CustomerExists(Guid id)
         {
-            return _context.Company.Any(e => e.Id == id);
+            return _context.Customer.Any(e => e.Id == id);
         }
     }
 }

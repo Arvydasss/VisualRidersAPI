@@ -12,47 +12,47 @@ namespace APIforVisualRiders.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CompaniesController : ControllerBase
+    public class PermissionsController : ControllerBase
     {
         private readonly VisualRidersContext _context;
 
-        public CompaniesController(VisualRidersContext context)
+        public PermissionsController(VisualRidersContext context)
         {
             _context = context;
         }
 
-        // GET: api/Companies
+        // GET: api/Permissions
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Company>>> GetCompany()
+        public async Task<ActionResult<IEnumerable<Permission>>> GetPermission()
         {
-            return await _context.Company.ToListAsync();
+            return await _context.Permission.ToListAsync();
         }
 
-        // GET: api/Companies/5
+        // GET: api/Permissions/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Company>> GetCompany(Guid id)
+        public async Task<ActionResult<Permission>> GetPermission(Guid id)
         {
-            var company = await _context.Company.FindAsync(id);
+            var permission = await _context.Permission.FindAsync(id);
 
-            if (company == null)
+            if (permission == null)
             {
                 return NotFound();
             }
 
-            return company;
+            return permission;
         }
 
-        // PUT: api/Companies/5
+        // PUT: api/Permissions/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCompany(Guid id, Company company)
+        public async Task<IActionResult> PutPermission(Guid id, Permission permission)
         {
-            if (id != company.Id)
+            if (id != permission.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(company).State = EntityState.Modified;
+            _context.Entry(permission).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace APIforVisualRiders.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CompanyExists(id))
+                if (!PermissionExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace APIforVisualRiders.Controllers
             return NoContent();
         }
 
-        // POST: api/Companies
+        // POST: api/Permissions
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Company>> PostCompany(Company company)
+        public async Task<ActionResult<Permission>> PostPermission(Permission permission)
         {
-            _context.Company.Add(company);
+            _context.Permission.Add(permission);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCompany", new { id = company.Id }, company);
+            return CreatedAtAction("GetPermission", new { id = permission.Id }, permission);
         }
 
-        // DELETE: api/Companies/5
+        // DELETE: api/Permissions/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCompany(Guid id)
+        public async Task<IActionResult> DeletePermission(Guid id)
         {
-            var company = await _context.Company.FindAsync(id);
-            if (company == null)
+            var permission = await _context.Permission.FindAsync(id);
+            if (permission == null)
             {
                 return NotFound();
             }
 
-            _context.Company.Remove(company);
+            _context.Permission.Remove(permission);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CompanyExists(Guid id)
+        private bool PermissionExists(Guid id)
         {
-            return _context.Company.Any(e => e.Id == id);
+            return _context.Permission.Any(e => e.Id == id);
         }
     }
 }

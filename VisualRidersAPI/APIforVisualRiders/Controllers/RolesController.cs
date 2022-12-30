@@ -12,47 +12,47 @@ namespace APIforVisualRiders.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CompaniesController : ControllerBase
+    public class RolesController : ControllerBase
     {
         private readonly VisualRidersContext _context;
 
-        public CompaniesController(VisualRidersContext context)
+        public RolesController(VisualRidersContext context)
         {
             _context = context;
         }
 
-        // GET: api/Companies
+        // GET: api/Roles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Company>>> GetCompany()
+        public async Task<ActionResult<IEnumerable<Role>>> GetRole()
         {
-            return await _context.Company.ToListAsync();
+            return await _context.Role.ToListAsync();
         }
 
-        // GET: api/Companies/5
+        // GET: api/Roles/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Company>> GetCompany(Guid id)
+        public async Task<ActionResult<Role>> GetRole(Guid id)
         {
-            var company = await _context.Company.FindAsync(id);
+            var role = await _context.Role.FindAsync(id);
 
-            if (company == null)
+            if (role == null)
             {
                 return NotFound();
             }
 
-            return company;
+            return role;
         }
 
-        // PUT: api/Companies/5
+        // PUT: api/Roles/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCompany(Guid id, Company company)
+        public async Task<IActionResult> PutRole(Guid id, Role role)
         {
-            if (id != company.Id)
+            if (id != role.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(company).State = EntityState.Modified;
+            _context.Entry(role).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace APIforVisualRiders.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CompanyExists(id))
+                if (!RoleExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace APIforVisualRiders.Controllers
             return NoContent();
         }
 
-        // POST: api/Companies
+        // POST: api/Roles
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Company>> PostCompany(Company company)
+        public async Task<ActionResult<Role>> PostRole(Role role)
         {
-            _context.Company.Add(company);
+            _context.Role.Add(role);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCompany", new { id = company.Id }, company);
+            return CreatedAtAction("GetRole", new { id = role.Id }, role);
         }
 
-        // DELETE: api/Companies/5
+        // DELETE: api/Roles/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCompany(Guid id)
+        public async Task<IActionResult> DeleteRole(Guid id)
         {
-            var company = await _context.Company.FindAsync(id);
-            if (company == null)
+            var role = await _context.Role.FindAsync(id);
+            if (role == null)
             {
                 return NotFound();
             }
 
-            _context.Company.Remove(company);
+            _context.Role.Remove(role);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CompanyExists(Guid id)
+        private bool RoleExists(Guid id)
         {
-            return _context.Company.Any(e => e.Id == id);
+            return _context.Role.Any(e => e.Id == id);
         }
     }
 }

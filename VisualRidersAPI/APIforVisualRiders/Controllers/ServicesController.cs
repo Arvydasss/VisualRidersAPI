@@ -14,9 +14,9 @@ namespace APIforVisualRiders.Controllers
     [ApiController]
     public class ServicesController : ControllerBase
     {
-        private readonly NorthwindContext _context;
+        private readonly VisualRidersContext _context;
 
-        public ServicesController(NorthwindContext context)
+        public ServicesController(VisualRidersContext context)
         {
             _context = context;
         }
