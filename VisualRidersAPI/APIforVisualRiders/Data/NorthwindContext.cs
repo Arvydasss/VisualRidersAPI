@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Models;
+using apiForVisualRiders.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Northwind.Data;
 
@@ -35,6 +37,9 @@ public partial class NorthwindContext : DbContext
     public virtual DbSet<Supplier> Suppliers { get; set; }
 
     public virtual DbSet<Territory> Territories { get; set; }
+
+    //---------------------------------------------------------------
+    public DbSet<Branch> Branch { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -208,7 +213,15 @@ public partial class NorthwindContext : DbContext
         });
 
         OnModelCreatingPartial(modelBuilder);
+        //-------------------------------------------------------------------------------
+        //BRANCH
+        //modelBuilder.Entity<Branch>().HasKey(c => c.Id);
+        //modelBuilder.Entity<Branch>().HasOne<Company>().WithMany().HasForeignKey(p => p.Company);
+        modelBuilder.Entity<Branch>().HasData(
+            new Branch { Id = Guid.Parse("f7517440-4dc6-4fe3-8f0f-80fdfd1d35f6"), Address = "AddrStr", WorkingHourStartStr = "00:00", WorkingHourEndStr = "11:11", WorkingDays = WorkingDays.Monday, Contacts = "+3706112", Status = BranchStatus.Active, Company = Guid.Parse("d1ce4e4b-813f-4c89-9440-19cfb83a7669") }
+          );
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
 }
