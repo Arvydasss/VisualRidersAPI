@@ -14,9 +14,9 @@ namespace APIforVisualRiders.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private readonly NorthwindContext _context;
+        private readonly VisualRidersContext _context;
 
-        public OrdersController(NorthwindContext context)
+        public OrdersController(VisualRidersContext context)
         {
             _context = context;
         }

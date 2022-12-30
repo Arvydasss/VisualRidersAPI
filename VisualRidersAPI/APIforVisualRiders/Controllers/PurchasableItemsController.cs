@@ -9,9 +9,9 @@ namespace APIforVisualRiders.Controllers
     [ApiController]
     public class PurchasableItemsController : ControllerBase
     {
-        private readonly NorthwindContext _context;
+        private readonly VisualRidersContext _context;
 
-        public PurchasableItemsController(NorthwindContext context)
+        public PurchasableItemsController(VisualRidersContext context)
         {
             _context = context;
         }
