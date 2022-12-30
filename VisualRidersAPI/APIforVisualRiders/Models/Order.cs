@@ -1,41 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Northwind.Models;
-
-public partial class Order
+﻿namespace APIforVisualRiders.Models
 {
-    public long Id { get; set; }
+    public enum OrderStatus
+    {
+        Created,
+        Returned,
+        Completed,
+        Cancelled, 
+        Refunded
+    }
 
-    public string? OrderDate { get; set; }
+    public class Order
+    {
+        public Guid Id { get; set; }
 
-    public string? RequiredDate { get; set; }
+        public DateTime SubmissionDate { get; set; }
 
-    public string? ShippedDate { get; set; }
+        public DateTime? FulfillmentDate { get; set; }
 
-    public long? ShipVia { get; set; }
+        public decimal Tip { get; set; }
 
-    public byte[] Freight { get; set; } = null!;
+        // public bool RequiresDelivery { get; set; }
 
-    public string? ShipName { get; set; }
+        public string? Comment { get; set; }
 
-    public string? ShipAddress { get; set; }
+        public OrderStatus? Status { get; set; }
 
-    public string? ShipCity { get; set; }
+        public Guid Customer { get; set; }
 
-    public string? ShipRegion { get; set; }
+        public Guid Employee { get; set; }
 
-    public string? ShipPostalCode { get; set; }
+        public Guid Discount { get; set; }
 
-    public string? ShipCountry { get; set; }
+        public Guid Delivery { get; set; }
 
-    public string? CustomerId { get; set; }
+        public OrderItem? OrderItem { get; set; }
 
-    public long EmployeeId { get; set; }
-
-    public virtual Customer? Customer { get; set; }
-
-    public virtual Employee Employee { get; set; } = null!;
-
-    public virtual ICollection<OrderDetail> OrderDetails { get; } = new List<OrderDetail>();
+    }
 }
