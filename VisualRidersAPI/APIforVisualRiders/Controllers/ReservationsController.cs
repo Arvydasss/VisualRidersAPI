@@ -42,6 +42,22 @@ namespace APIforVisualRiders.Controllers
             return reservation;
         }
 
+        // GET: api/Reservations/employee
+        [HttpGet("{employeeId}/{date}")]
+        public async Task<ActionResult<Reservation>> GetReservationEmployee(Guid employeeId, string date)
+        {
+            var reservations = await _context.Reservation.ToListAsync();
+            List<Reservation> result = new List<Reservation>();
+            foreach (var reservation in reservations)
+            {
+                if (reservation.EmployeeId == employeeId)
+                {
+                    result.Add(reservation);
+                }
+            }
+            return Ok(result);
+        }
+
         // PUT: api/Reservations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

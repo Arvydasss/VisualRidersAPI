@@ -28,6 +28,8 @@ public partial class VisualRidersContext : DbContext
     public DbSet<Product> Product { get; set; }
     public DbSet<Reservation> Reservation { get; set; }
     public DbSet<Discount> Discount { get; set; }
+    public DbSet<Delivery> Delivery { get; set; }
+    public DbSet<DeliveryOption> DeliveryOption { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -91,11 +93,11 @@ public partial class VisualRidersContext : DbContext
         modelBuilder.Entity<Order>().HasOne<Customer>().WithMany().HasForeignKey(p => p.Customer);
         modelBuilder.Entity<Order>().HasOne<Employee>().WithMany().HasForeignKey(p => p.Employee);
         modelBuilder.Entity<Order>().HasOne<Discount>().WithMany().HasForeignKey(p => p.Discount);
-        //modelBuilder.Entity<Order>().HasOne<Delivery>().WithMany().HasForeignKey(p => p.Delivery);
+        modelBuilder.Entity<Order>().HasOne<Delivery>().WithMany().HasForeignKey(p => p.Delivery);
         modelBuilder.Entity<Order>().HasData(
-           new Order { Id = Guid.NewGuid(), SubmissionDate = DateTime.Today, FulfillmentDate = DateTime.Today, Tip = 1.24m, Comment = "Nothing", Status = OrderStatus.Created, Customer = Guid.Parse("7e3de3f7-826f-49e0-bad4-e996d92a0d88"), Discount = Guid.Parse("70163c24-2c08-4924-a2a2-abb4e2079a0b"), Employee = Guid.Parse("32d71bbb-0bb6-4d22-b3e0-14ef0795b007") },
-           new Order { Id = Guid.NewGuid(), SubmissionDate = DateTime.Today, FulfillmentDate = DateTime.Today, Tip = 1.24m, Comment = "Abcdefu", Status = OrderStatus.Returned, Customer = Guid.Parse("7e3de3f7-826f-49e0-bad4-e996d92a0d88"), Discount = Guid.Parse("70163c24-2c08-4924-a2a2-abb4e2079a0b"), Employee = Guid.Parse("32d71bbb-0bb6-4d22-b3e0-14ef0795b007") },
-           new Order { Id = Guid.Parse("eceba813-ac14-4e03-b5e3-756bae902441"), SubmissionDate = DateTime.Today, FulfillmentDate = DateTime.Today, Tip = 1.24m, Comment = "Woop", Status = OrderStatus.Returned, Customer = Guid.Parse("7e3de3f7-826f-49e0-bad4-e996d92a0d88"), Discount = Guid.Parse("70163c24-2c08-4924-a2a2-abb4e2079a0b"), Employee = Guid.Parse("32d71bbb-0bb6-4d22-b3e0-14ef0795b007") }
+           new Order { Id = Guid.NewGuid(), SubmissionDate = DateTime.Today, FulfillmentDate = DateTime.Today, Tip = 1.24m, Comment = "Nothing", Status = OrderStatus.Created, Customer = Guid.Parse("7e3de3f7-826f-49e0-bad4-e996d92a0d88"), Discount = Guid.Parse("70163c24-2c08-4924-a2a2-abb4e2079a0b"), Employee = Guid.Parse("32d71bbb-0bb6-4d22-b3e0-14ef0795b007"), Delivery = Guid.Parse("1fe97290-aa7f-44bf-9106-73fffe024a91") },
+           new Order { Id = Guid.NewGuid(), SubmissionDate = DateTime.Today, FulfillmentDate = DateTime.Today, Tip = 1.24m, Comment = "Abcdefu", Status = OrderStatus.Returned, Customer = Guid.Parse("7e3de3f7-826f-49e0-bad4-e996d92a0d88"), Discount = Guid.Parse("70163c24-2c08-4924-a2a2-abb4e2079a0b"), Employee = Guid.Parse("32d71bbb-0bb6-4d22-b3e0-14ef0795b007"), Delivery = Guid.Parse("1fe97290-aa7f-44bf-9106-73fffe024a91") },
+           new Order { Id = Guid.Parse("eceba813-ac14-4e03-b5e3-756bae902441"), SubmissionDate = DateTime.Today, FulfillmentDate = DateTime.Today, Tip = 1.24m, Comment = "Woop", Status = OrderStatus.Returned, Customer = Guid.Parse("7e3de3f7-826f-49e0-bad4-e996d92a0d88"), Discount = Guid.Parse("70163c24-2c08-4924-a2a2-abb4e2079a0b"), Employee = Guid.Parse("32d71bbb-0bb6-4d22-b3e0-14ef0795b007"), Delivery = Guid.Parse("1fe97290-aa7f-44bf-9106-73fffe024a91") }
          );
 
         //PURCHASABLEITEM
@@ -131,6 +133,18 @@ public partial class VisualRidersContext : DbContext
         //PRODUCT
         modelBuilder.Entity<Product>().HasData(
             new Product { Id = Guid.NewGuid(), Name = "Cabbage" }
+          );
+
+        //DELIVERY
+        modelBuilder.Entity<Delivery>().HasKey(c => c.Id);
+        modelBuilder.Entity<Delivery>().HasOne<DeliveryOption>().WithMany().HasForeignKey(p => p.DeliveryOptionId);
+        modelBuilder.Entity<Delivery>().HasData(
+            new Delivery { Id = Guid.Parse("1fe97290-aa7f-44bf-9106-73fffe024a91"), Address = "Pikadili Str 13", DeliveryOptionId = Guid.Parse("0a0befb9-9c44-4ee6-a236-447e327aecdf") }
+          );
+
+        //DELIVERYOPTION
+        modelBuilder.Entity<DeliveryOption>().HasData(
+            new DeliveryOption { Id = Guid.Parse("0a0befb9-9c44-4ee6-a236-447e327aecdf"), Title = "HomeDelivery1", Price = 12.34m, BranchId = Guid.Parse("f7517440-4dc6-4fe3-8f0f-80fdfd1d35f6") }
           );
     }
 

@@ -48,7 +48,7 @@ namespace APIforVisualRiders.Migrations
                         },
                         new
                         {
-                            Id = new Guid("cf7ca688-2da8-4ce0-b06c-6fed6095fb48"),
+                            Id = new Guid("b7f33650-9191-46b2-a721-2282bb85a281"),
                             Description = "somthing222",
                             Discount = new Guid("70163c24-2c08-4924-a2a2-abb4e2079a0b"),
                             Name = "Category222"
@@ -95,6 +95,8 @@ namespace APIforVisualRiders.Migrations
 
                     b.HasIndex("Customer");
 
+                    b.HasIndex("Delivery");
+
                     b.HasIndex("Discount");
 
                     b.HasIndex("Employee");
@@ -106,10 +108,10 @@ namespace APIforVisualRiders.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("439b4c3f-fc3b-4cf0-93d1-30d974f68d2a"),
+                            Id = new Guid("c2548b4a-cc25-4155-ab87-8e4cbd8982b4"),
                             Comment = "Nothing",
                             Customer = new Guid("7e3de3f7-826f-49e0-bad4-e996d92a0d88"),
-                            Delivery = new Guid("00000000-0000-0000-0000-000000000000"),
+                            Delivery = new Guid("1fe97290-aa7f-44bf-9106-73fffe024a91"),
                             Discount = new Guid("70163c24-2c08-4924-a2a2-abb4e2079a0b"),
                             Employee = new Guid("32d71bbb-0bb6-4d22-b3e0-14ef0795b007"),
                             FulfillmentDate = new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Local),
@@ -119,10 +121,10 @@ namespace APIforVisualRiders.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e7dc93e9-da0d-4045-8f5e-b0a69e5ade5f"),
+                            Id = new Guid("dfa0b800-03a7-4894-a20f-ff00660d15e1"),
                             Comment = "Abcdefu",
                             Customer = new Guid("7e3de3f7-826f-49e0-bad4-e996d92a0d88"),
-                            Delivery = new Guid("00000000-0000-0000-0000-000000000000"),
+                            Delivery = new Guid("1fe97290-aa7f-44bf-9106-73fffe024a91"),
                             Discount = new Guid("70163c24-2c08-4924-a2a2-abb4e2079a0b"),
                             Employee = new Guid("32d71bbb-0bb6-4d22-b3e0-14ef0795b007"),
                             FulfillmentDate = new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Local),
@@ -135,7 +137,7 @@ namespace APIforVisualRiders.Migrations
                             Id = new Guid("eceba813-ac14-4e03-b5e3-756bae902441"),
                             Comment = "Woop",
                             Customer = new Guid("7e3de3f7-826f-49e0-bad4-e996d92a0d88"),
-                            Delivery = new Guid("00000000-0000-0000-0000-000000000000"),
+                            Delivery = new Guid("1fe97290-aa7f-44bf-9106-73fffe024a91"),
                             Discount = new Guid("70163c24-2c08-4924-a2a2-abb4e2079a0b"),
                             Employee = new Guid("32d71bbb-0bb6-4d22-b3e0-14ef0795b007"),
                             FulfillmentDate = new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Local),
@@ -200,7 +202,7 @@ namespace APIforVisualRiders.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6d8f49bb-b216-452b-af4f-f8cc690b0318"),
+                            Id = new Guid("de52b033-caab-4eba-acad-1819ec024448"),
                             Description = "Desc1",
                             Discount = new Guid("70163c24-2c08-4924-a2a2-abb4e2079a0b"),
                             Duration = 10,
@@ -211,7 +213,7 @@ namespace APIforVisualRiders.Migrations
                         },
                         new
                         {
-                            Id = new Guid("44be6764-7418-4d19-8058-f5f35358081f"),
+                            Id = new Guid("e11b0107-a867-4b3d-996f-6ed0ff31d320"),
                             Description = "Desc2",
                             Discount = new Guid("70163c24-2c08-4924-a2a2-abb4e2079a0b"),
                             Duration = 7,
@@ -314,7 +316,7 @@ namespace APIforVisualRiders.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c9bb3ad5-92bf-4a72-8223-432f2470bac1"),
+                            Id = new Guid("eb40e221-ca09-4e0b-b5d3-fffd59d17467"),
                             ActiveSince = "2222-01-01",
                             BillingDetails = "lool",
                             LegalCompanyName = "SecondCompany",
@@ -363,13 +365,13 @@ namespace APIforVisualRiders.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c91e1f82-1577-474c-9396-c0af97156c28"),
+                            Id = new Guid("297b20c3-cc07-4e21-b82d-2cac485d10b8"),
                             DiscountId = new Guid("70163c24-2c08-4924-a2a2-abb4e2079a0b"),
                             Email = "makalyte@gmail.com",
                             Name = "Dalytė",
                             Password = "makalyte123",
                             PhoneNumber = "+3708145141",
-                            RegisterDate = new DateTime(2022, 12, 31, 14, 32, 53, 834, DateTimeKind.Local).AddTicks(5745),
+                            RegisterDate = new DateTime(2022, 12, 31, 15, 24, 0, 138, DateTimeKind.Local).AddTicks(7720),
                             Status = 1
                         },
                         new
@@ -380,8 +382,66 @@ namespace APIforVisualRiders.Migrations
                             Name = "Petras",
                             Password = "petriok123",
                             PhoneNumber = "+370812252",
-                            RegisterDate = new DateTime(2022, 12, 31, 14, 32, 53, 834, DateTimeKind.Local).AddTicks(5787),
+                            RegisterDate = new DateTime(2022, 12, 31, 15, 24, 0, 138, DateTimeKind.Local).AddTicks(7764),
                             Status = 1
+                        });
+                });
+
+            modelBuilder.Entity("apiForVisualRiders.Models.Delivery", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("DeliveryOptionId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeliveryOptionId");
+
+                    b.ToTable("Delivery");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("1fe97290-aa7f-44bf-9106-73fffe024a91"),
+                            Address = "Pikadili Str 13",
+                            DeliveryOptionId = new Guid("0a0befb9-9c44-4ee6-a236-447e327aecdf")
+                        });
+                });
+
+            modelBuilder.Entity("apiForVisualRiders.Models.DeliveryOption", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("BranchId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DeliveryOption");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("0a0befb9-9c44-4ee6-a236-447e327aecdf"),
+                            BranchId = new Guid("f7517440-4dc6-4fe3-8f0f-80fdfd1d35f6"),
+                            Price = 12.34m,
+                            Title = "HomeDelivery1"
                         });
                 });
 
@@ -414,21 +474,21 @@ namespace APIforVisualRiders.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4f058258-104b-46d1-a67c-07b7ff84d780"),
+                            Id = new Guid("d1ddfa55-6c5f-4a40-8457-7ef0e75f8998"),
                             Amount = 20m,
                             Code = "NUOLAIDA20",
-                            EndDate = new DateTime(2023, 3, 31, 14, 32, 53, 836, DateTimeKind.Local).AddTicks(5052),
+                            EndDate = new DateTime(2023, 3, 31, 15, 24, 0, 141, DateTimeKind.Local).AddTicks(198),
                             Measure = 1,
-                            StartDate = new DateTime(2022, 12, 31, 14, 32, 53, 836, DateTimeKind.Local).AddTicks(5051)
+                            StartDate = new DateTime(2022, 12, 31, 15, 24, 0, 141, DateTimeKind.Local).AddTicks(196)
                         },
                         new
                         {
                             Id = new Guid("70163c24-2c08-4924-a2a2-abb4e2079a0b"),
                             Amount = 30m,
                             Code = "NUOLAIDA30",
-                            EndDate = new DateTime(2023, 3, 31, 14, 32, 53, 836, DateTimeKind.Local).AddTicks(5057),
+                            EndDate = new DateTime(2023, 3, 31, 15, 24, 0, 141, DateTimeKind.Local).AddTicks(202),
                             Measure = 1,
-                            StartDate = new DateTime(2022, 12, 31, 14, 32, 53, 836, DateTimeKind.Local).AddTicks(5056)
+                            StartDate = new DateTime(2022, 12, 31, 15, 24, 0, 141, DateTimeKind.Local).AddTicks(201)
                         });
                 });
 
@@ -470,7 +530,7 @@ namespace APIforVisualRiders.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8088044d-25a3-4614-9557-6a39bc267622"),
+                            Id = new Guid("2a4ed57e-b2f8-4a34-9178-f2d763de0e8e"),
                             CompanyId = new Guid("d1ce4e4b-813f-4c89-9440-19cfb83a7669"),
                             Email = "arvydas@gmail.com",
                             Name = "Arvydas",
@@ -480,7 +540,7 @@ namespace APIforVisualRiders.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8d60791c-1f90-46ae-bea1-a2c4474c23ef"),
+                            Id = new Guid("58797525-74da-4978-a0c7-2f88ed1cc3d0"),
                             CompanyId = new Guid("d1ce4e4b-813f-4c89-9440-19cfb83a7669"),
                             Email = "danielius@gmail.com",
                             Name = "Danielius",
@@ -490,7 +550,7 @@ namespace APIforVisualRiders.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d1769174-677f-4c5b-833a-6e59fa43c4ae"),
+                            Id = new Guid("bf67a229-cfdd-4838-8d23-f5556e48cf43"),
                             CompanyId = new Guid("d1ce4e4b-813f-4c89-9440-19cfb83a7669"),
                             Email = "paulina@gmail.com",
                             Name = "Paulina",
@@ -559,7 +619,7 @@ namespace APIforVisualRiders.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("cd110338-b20a-486a-85e3-75fa4367541f"),
+                            Id = new Guid("64a23a17-c50c-4773-87f5-bb06be1ee5b7"),
                             Name = "Cabbage"
                         });
                 });
@@ -601,13 +661,13 @@ namespace APIforVisualRiders.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("efc175c0-854d-4c85-9b12-24e10eb655a8"),
+                            Id = new Guid("0390744e-e57c-4879-921b-3029fd3d3fc0"),
                             EmployeeId = new Guid("32d71bbb-0bb6-4d22-b3e0-14ef0795b007"),
-                            EndTime = new DateTime(2022, 12, 31, 17, 32, 53, 836, DateTimeKind.Local).AddTicks(5025),
+                            EndTime = new DateTime(2022, 12, 31, 18, 24, 0, 141, DateTimeKind.Local).AddTicks(163),
                             OrderId = new Guid("eceba813-ac14-4e03-b5e3-756bae902441"),
                             ReservationStatus = 0,
                             ServiceId = new Guid("c4559b26-d0b9-4f47-b0b5-dfafd7a70b61"),
-                            StartTime = new DateTime(2022, 12, 31, 14, 32, 53, 836, DateTimeKind.Local).AddTicks(5016)
+                            StartTime = new DateTime(2022, 12, 31, 15, 24, 0, 141, DateTimeKind.Local).AddTicks(149)
                         });
                 });
 
@@ -639,13 +699,13 @@ namespace APIforVisualRiders.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0acd9050-8933-4115-814b-1b79f55582d4"),
+                            Id = new Guid("bfb9d3fd-5ea8-459d-b333-837f759b6a22"),
                             PermissionId = new Guid("563fcbd3-f7c3-4248-9bed-23ae255cdaf0"),
                             Title = "Manager"
                         },
                         new
                         {
-                            Id = new Guid("b223c3ed-370a-4eab-b809-b2307d0e8d97"),
+                            Id = new Guid("4d43baa3-79ff-40b7-b9cc-85c5f64b0808"),
                             PermissionId = new Guid("d6e76701-49ca-4a6d-ba44-e7cdfc73ff1f"),
                             Title = "Bartender"
                         });
@@ -688,7 +748,7 @@ namespace APIforVisualRiders.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0df7631c-91f1-460d-a271-23c1ed05fe39"),
+                            Id = new Guid("874a889a-604b-4eb4-90dc-e767e6ff4d8e"),
                             BranchId = new Guid("f7517440-4dc6-4fe3-8f0f-80fdfd1d35f6"),
                             Description = "Service1Description",
                             DiscountId = new Guid("70163c24-2c08-4924-a2a2-abb4e2079a0b"),
@@ -722,6 +782,12 @@ namespace APIforVisualRiders.Migrations
                     b.HasOne("apiForVisualRiders.Models.Customer", null)
                         .WithMany()
                         .HasForeignKey("Customer")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("apiForVisualRiders.Models.Delivery", null)
+                        .WithMany()
+                        .HasForeignKey("Delivery")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -769,6 +835,15 @@ namespace APIforVisualRiders.Migrations
                     b.HasOne("apiForVisualRiders.Models.Discount", null)
                         .WithMany()
                         .HasForeignKey("DiscountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("apiForVisualRiders.Models.Delivery", b =>
+                {
+                    b.HasOne("apiForVisualRiders.Models.DeliveryOption", null)
+                        .WithMany()
+                        .HasForeignKey("DeliveryOptionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
