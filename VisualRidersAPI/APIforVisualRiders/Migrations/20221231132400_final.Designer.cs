@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Northwind.Data;
 
@@ -10,9 +11,11 @@ using Northwind.Data;
 namespace APIforVisualRiders.Migrations
 {
     [DbContext(typeof(VisualRidersContext))]
-    partial class VisualRidersContextModelSnapshot : ModelSnapshot
+    [Migration("20221231132400_final")]
+    partial class final
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.1");
