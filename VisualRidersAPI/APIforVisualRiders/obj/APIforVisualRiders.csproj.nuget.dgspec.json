@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arvyd\\Desktop\\Final\\VisualRidersAPI\\APIforVisualRiders\\APIforVisualRiders.csproj": {}
+    "C:\\Users\\Namai\\Desktop\\github\\VisualRidersAPI\\VisualRidersAPI\\APIforVisualRiders\\APIforVisualRiders.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arvyd\\Desktop\\Final\\VisualRidersAPI\\APIforVisualRiders\\APIforVisualRiders.csproj": {
+    "C:\\Users\\Namai\\Desktop\\github\\VisualRidersAPI\\VisualRidersAPI\\APIforVisualRiders\\APIforVisualRiders.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arvyd\\Desktop\\Final\\VisualRidersAPI\\APIforVisualRiders\\APIforVisualRiders.csproj",
+        "projectUniqueName": "C:\\Users\\Namai\\Desktop\\github\\VisualRidersAPI\\VisualRidersAPI\\APIforVisualRiders\\APIforVisualRiders.csproj",
         "projectName": "APIforVisualRiders",
-        "projectPath": "C:\\Users\\arvyd\\Desktop\\Final\\VisualRidersAPI\\APIforVisualRiders\\APIforVisualRiders.csproj",
-        "packagesPath": "C:\\Users\\arvyd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arvyd\\Desktop\\Final\\VisualRidersAPI\\APIforVisualRiders\\obj\\",
+        "projectPath": "C:\\Users\\Namai\\Desktop\\github\\VisualRidersAPI\\VisualRidersAPI\\APIforVisualRiders\\APIforVisualRiders.csproj",
+        "packagesPath": "C:\\Users\\Namai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Namai\\Desktop\\github\\VisualRidersAPI\\VisualRidersAPI\\APIforVisualRiders\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\arvyd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Namai\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +83,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -95,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
